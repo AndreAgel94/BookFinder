@@ -1,8 +1,12 @@
 .card {
-   display: flex;
-   border: 3px solid #2980b9;
-   width: 600px;
+   border: 2px solid #2980b9;
+   border-radius: 10px;
+   width: 42%;
+   margin-bottom: 30px;
+   padding: 10px;
+   margin-left: 50px;
 }
-.image img {
-   width: 100%;
+
+.data span {
+   width: 5px;
 }

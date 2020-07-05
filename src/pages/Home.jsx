@@ -1,10 +1,22 @@
 import React, { useState } from "react";
 import "./Home.css";
 import Card from "../components/Card";
+import axios from "axios";
+import NoImage from "../assets/ImgPlaceholder.png";
 
 const Home = () => {
+   const [datas, setDatas] = useState([]);
    const [texto, setTexto] = useState("");
-   console.log(texto);
+
+   function Api() {
+      axios
+         .get(`https://www.googleapis.com/books/v1/volumes?q=${texto}`)
+         .then((response) => {
+            const items = response.data.items;
+            setDatas(items);
+            console.log(items);
+         });
+   }
 
    return (
       <div className="homepage">
@@ -17,26 +29,35 @@ const Home = () => {
                <input
                   type="text"
                   placeholder="Type author, book name, subject"
+                  value={texto}
                   onChange={(e) => setTexto(e.target.value)}
                ></input>
-               <button type="button">SEARCH</button>
+               <button type="button" onClick={Api}>
+                  SEARCH
+               </button>
             </div>
          </div>
 
          <div className="livros">
-            <Card
-               titulo="A sereia de Harry"
-               autor="julio verne"
-               editora="MaisLivros"
-               ano="1895"
-            />
-            <Card
-               titulo="A sereia de Harry"
-               autor="julio verne"
-               editora="MaisLivros"
-               ano="1895"
-            />
+            {datas.map((item) => (
+               <Card
+                  key={item.id}
+                  image={
+                     item.volumeInfo.imageLinks === undefined
+                        ? "no image"
+                        : item.volumeInfo.imageLinks.thumbnail
+                  }
+                  titulo={item.volumeInfo.title}
+                  autor={item.volumeInfo.authors}
+                  editora={item.volumeInfo.publisher}
+                  ano={item.volumeInfo.publishedDate}
+               />
+            ))}
          </div>
+
+         <footer>
+            "Made by "<a href="https://github.com/AndreAgel94"> AndreAgel </a>
+         </footer>
       </div>
    );
 };

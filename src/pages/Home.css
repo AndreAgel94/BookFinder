@@ -5,6 +5,19 @@
    flex-direction: column;
 }
 
+.flash-info {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+footer {
+   margin-top: 30px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
 .header h1 {
    color: #2980b9;
    font-size: 40px;
@@ -15,15 +28,30 @@
    height: 30px;
    width: 500px;
    border: 3px solid #2980b9;
+   margin-block-end: 50px;
 }
 
 .input button {
    height: 38px;
    border: 3px solid black;
+   background: #8dcdd2;
+   color: black;
+   margin: 2px;
+   text-transform: uppercase;
 }
 
-.livros {
+.homepage .livros {
    display: flex;
-   justify-content: space-evenly;
-   margin: 50px;
+   flex-wrap: wrap;
+   align-items: strech;
+}
+
+.homepage .livros Card {
+   width: 90%;
+   margin-top: 30px;
+   justify-content: space-between;
+}
+
+div {
+   display: block;
 }
