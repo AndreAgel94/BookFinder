@@ -51,12 +51,13 @@ const Home = () => {
                   autor={item.volumeInfo.authors}
                   editora={item.volumeInfo.publisher}
                   ano={item.volumeInfo.publishedDate}
+                  link={item.volumeInfo.infoLink}
                />
             ))}
          </div>
 
          <footer>
-            "Made by "<a href="https://github.com/AndreAgel94"> AndreAgel </a>
+            Made by <a href="https://github.com/AndreAgel94"> AndreAgel </a>
          </footer>
       </div>
    );

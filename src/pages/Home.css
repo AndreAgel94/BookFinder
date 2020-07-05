@@ -25,14 +25,15 @@ footer {
 }
 
 .input input {
-   height: 30px;
+   height: 33px;
    width: 500px;
    border: 3px solid #2980b9;
    margin-block-end: 50px;
+   font-size: 20px;
 }
 
 .input button {
-   height: 38px;
+   height: 41px;
    border: 3px solid black;
    background: #8dcdd2;
    color: black;
